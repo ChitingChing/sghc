@@ -4,17 +4,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.textfield.CustomTextField?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.ultimatesoftware.controllers.SearchPatientController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="672.0" prefWidth="868.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.ultimatesoftware.controllers.SearchPatientController">
    <children>
       <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="42.0" prefWidth="494.0" text="Búsqueda de Paciente">
          <font>
@@ -26,22 +24,7 @@
             <HBox alignment="CENTER" prefHeight="53.0" prefWidth="600.0" spacing="30.0">
                <children>
                   <Label text="Búsqueda por:" />
-                  <VBox>
-                     <children>
-                        <RadioButton fx:id="rdbCedula" mnemonicParsing="false" selected="true" text="Cédula">
-                           <toggleGroup>
-                              <ToggleGroup fx:id="group" />
-                           </toggleGroup>
-                        </RadioButton>
-                        <RadioButton fx:id="rdbNombres" mnemonicParsing="false" text="Nombres" toggleGroup="$group" />
-                     </children>
-                  </VBox>
-                  <CustomTextField fx:id="txtCedula" promptText="Cédula">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </CustomTextField>
-                  <CustomTextField fx:id="txtNombres" promptText="Nombres y Apellidos">
+                  <CustomTextField fx:id="txtTextoBuscar" onAction="#buscarPacientes" prefHeight="30.0" prefWidth="367.0" promptText="Escriba un nombre, cédula o nuemro de historia clinica">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -70,6 +53,7 @@
          <children>
             <TableView fx:id="tblPacientes" minWidth="700.0" prefHeight="232.0" prefWidth="700.0" tableMenuButtonVisible="true">
                <columns>
+                  <TableColumn fx:id="colFecha" minWidth="100.0" prefWidth="-1.0" text="fECHA" />
                   <TableColumn fx:id="colIdentificacion" minWidth="100.0" prefWidth="-1.0" text="Identificacion" />
                   <TableColumn fx:id="colPrimerNombre" minWidth="100.0" prefWidth="-1.0" text="Primer Nombre" />
                   <TableColumn fx:id="colSegundoNombre" minWidth="100.0" prefWidth="-1.0" text="Segundo Nombre" />
@@ -79,6 +63,14 @@
                   <TableColumn fx:id="colTelefono" minWidth="100.0" prefWidth="-1.0" text="Teléfono" />
                </columns>
             </TableView>
+            <Label text="Lista de Embarazos:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
             <TableView fx:id="tblVisitas" minWidth="100.0" prefHeight="218.0" prefWidth="700.0" tableMenuButtonVisible="true">
                <columns>
                   <TableColumn fx:id="colFechaVisita" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" text="Fecha Visita" />

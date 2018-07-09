@@ -5,12 +5,18 @@
  */
 package io.ultimatesoftware.controllers;
 
+import com.dlsc.formsfx.model.structure.*;
+import com.dlsc.formsfx.view.renderer.FormRenderer;
+import com.dlsc.formsfx.view.util.ColSpan;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Orientation;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -70,17 +76,102 @@ public class HomeController implements Initializable {
         Stage stage = new Stage();
         Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/SearchPatient.fxml")));
         stage.setScene(scene);
-        stage.setResizable(false);
+        stage.setResizable(true);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
     }
     @FXML
     private void showConfig(ActionEvent event) throws IOException {
+
+        Form loginForm = Form.of(
+                Group.of(
+                        Field.ofStringType("")
+                                .label("Username"),
+                        Field.ofStringType("")
+                                .label("Password")
+                                .required("This field can’t be empty")
+                ),Group.of(
+                        Field.ofStringType("")
+                                .label("Username"),
+                        Field.ofStringType("")
+                                .label("Password")
+                                .required("This field can’t be empty")
+                ),Group.of(
+                        Field.ofStringType("")
+                                .label("Username"),
+                        Field.ofStringType("")
+                                .label("Password")
+                                .required("This field can’t be empty")
+                ),Group.of(
+                        Field.ofStringType("")
+                                .label("Username"),
+                        Field.ofStringType("")
+                                .label("Password")
+                                .required("This field can’t be empty")
+                ),Group.of(
+                        Field.ofStringType("")
+                                .label("Username"),
+                        Field.ofStringType("")
+                                .label("Password")
+                                .required("This field can’t be empty")
+                ),Group.of(
+                        Field.ofStringType("")
+                                .label("Username").tooltip("asdadasda"),
+                        Field.ofStringType("")
+                                .label("Password")
+                                .required("This field can’t be empty")
+                )
+        ).title("Login");
+        Form loginForm2 = Form.of(
+                Group.of(
+                        Field.ofStringType("")
+                                .label("Username"),
+                        Field.ofStringType("")
+                                .label("Password")
+                                .required("This field can’t be empty")
+                ),Group.of(
+                        Field.ofStringType("")
+                                .label("Username"),
+                        Field.ofStringType("")
+                                .label("Password")
+                                .required("This field can’t be empty")
+                ),Group.of(
+                        Field.ofStringType("")
+                                .label("Username"),
+                        Field.ofStringType("")
+                                .label("Password")
+                                .required("This field can’t be empty")
+                ),Group.of(
+                        Field.ofStringType("")
+                                .label("Username"),
+                        Field.ofStringType("")
+                                .label("Password")
+                                .required("This field can’t be empty")
+                ),Group.of(
+                        Field.ofStringType("")
+                                .label("Username"),
+                        Field.ofStringType("")
+                                .label("Password")
+                                .required("This field can’t be empty")
+                ),Group.of(
+                        Field.ofStringType("")
+                                .label("Username").tooltip("asdadasda"),
+                        Field.ofStringType("")
+                                .label("Password")
+                                .required("This field can’t be empty")
+                )
+        ).title("Login");
+        FlowPane root = new FlowPane(Orientation.HORIZONTAL);
+        root.setPrefSize(500,500);
+        root.getChildren().add(new FormRenderer(loginForm));
+        root.getChildren().add(new FormRenderer(loginForm2));
+
         Stage stage = new Stage();
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/ConnectionParameters.fxml")));
+        Scene scene = new Scene(root); //(FXMLLoader.load(getClass().getResource("/fxml/ConnectionParameters.fxml")));
         stage.setScene(scene);
-        stage.setResizable(false);
-        stage.initModality(Modality.APPLICATION_MODAL);
+
+        //stage.setResizable(false);
+        //stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
 
     }

@@ -45,6 +45,17 @@
             <artifactId>commons-configuration2</artifactId>
             <version>2.2</version>
         </dependency>
-    </dependencies>
 
+        <dependency>
+            <groupId>com.dlsc.formsfx</groupId>
+            <artifactId>formsfx-core</artifactId>
+            <version>1.2</version>
+        </dependency>
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>jcenter</id>
+            <url>http://jcenter.bintray.com</url>
+        </repository>
+    </repositories>
 </project>
